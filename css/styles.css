@@ -1,4 +1,4 @@
-/* CSS Reset and Base Styles */
+/* css base styles */
 * {
     margin: 0;
     padding: 0;
@@ -13,14 +13,14 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Container for consistent spacing */
+/* container for consistent spacing */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* Typography */
+/* fonts and stuff */
 h1, h2, h3 {
     font-weight: 600;
     margin-bottom: 1rem;
@@ -42,7 +42,7 @@ p {
     margin-bottom: 1rem;
 }
 
-/* Navigation Bar */
+/* nav bar */
 .navbar {
     background-color: #ffffff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -101,7 +101,7 @@ p {
     background-color: #f3f4f6;
 }
 
-/* Mobile Menu */
+/* mobile menu */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -116,7 +116,7 @@ p {
     transition: 0.3s;
 }
 
-/* Hero Section */
+/* hero section */
 .hero {
     padding: 120px 0 80px;
     background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
@@ -230,7 +230,7 @@ p {
     border-radius: 50%;
 }
 
-/* About Section */
+/* about section */
 .about {
     padding: 80px 0;
     background-color: #ffffff;
@@ -275,7 +275,7 @@ p {
     font-weight: 500;
 }
 
-/* Projects Section */
+/* projects section */
 .projects {
     padding: 80px 0;
     background-color: #f8fafc;
@@ -360,7 +360,7 @@ p {
     color: #1d4ed8;
 }
 
-/* Contact Section */
+/* contact section */
 .contact {
     padding: 80px 0;
     background-color: #ffffff;
@@ -453,7 +453,7 @@ p {
     padding: 2rem 0;
 }
 
-/* Dark Mode Styles */
+/* dark mode */
 .dark-mode {
     background-color: #1e293b !important;
     color: #e2e8f0 !important;
