@@ -1,4 +1,4 @@
-/* css base styles */
+/* css base styling */
 * {
     margin: 0;
     padding: 0;
@@ -590,9 +590,9 @@ p {
     border-color: #475569 !important;
 }
 
-/* responsive designing */
+/* this part is for responsive design */
 
-/* tablet */
+/* tablet view */
 @media (max-width: 768px) {
     .hero-container {
         grid-template-columns: 1fr;
@@ -630,7 +630,7 @@ p {
     }
 }
 
-/* mobile */
+/* mobile view */
 @media (max-width: 480px) {
     .nav-menu {
         position: fixed;
@@ -712,7 +712,7 @@ p {
     }
 }
 
-/* Very Small Mobile */
+/* very small devices (maybe like an iphone mini) */
 @media (max-width: 320px) {
     .hero-title {
         font-size: 1.75rem;
