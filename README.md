@@ -88,7 +88,7 @@ You can check out the detailed AI usage report in `docs/ai-usage-report.md` to s
 
 ## Live Demo
 
-[View Live Site](#) _(Will add the actual link once deployed)_
+[View Live Site](https://almaan-portfolio.netlify.app/) 
 
 ## What I Learned
 
