@@ -1,7 +1,7 @@
-// Wait for DOM to be fully loaded
+// wait for the dom to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Mobile Navigation Toggle
+    // mobile navigation toggle
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
             navMenu.classList.toggle('active');
         });
         
-        // Close mobile menu when clicking on nav links
+        // mobile menu should be closed when clicking on nav links
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function() {
                 hamburger.classList.remove('active');
@@ -20,11 +20,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Dark Mode Toggle
+    // dark mode 
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
     
-    // Check for saved theme preference or default to light mode
+    // quick check to see if user has any mode preferences (cuz some people seem to like light mode apparently)
     const savedTheme = localStorage.getItem('theme') || 'light';
     if (savedTheme === 'dark') {
         body.classList.add('dark-mode');
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
             themeToggle.textContent = '☀️';
         }
     } else {
-        // Ensure light mode is properly set
+        // light mode preference (why just why lol)
         body.classList.remove('dark-mode');
         if (themeToggle) {
             themeToggle.textContent = '🌙';
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
         themeToggle.addEventListener('click', function() {
             body.classList.toggle('dark-mode');
             
-            // Update button icon and save preference
+            // update button icon to opposite mode and save user's preference
             if (body.classList.contains('dark-mode')) {
                 themeToggle.textContent = '☀️';
                 localStorage.setItem('theme', 'dark');
@@ -52,12 +52,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 localStorage.setItem('theme', 'light');
             }
             
-            // Update navbar immediately when theme changes
             updateNavbarTheme();
         });
     }
     
-    // Function to update navbar theme
+    // func to update navbar colr
     function updateNavbarTheme() {
         const navbar = document.querySelector('.navbar');
         if (navbar) {
@@ -69,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Smooth Scrolling for navigation links
+    // smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -78,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetSection = document.querySelector(targetId);
             
             if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 80; // Account for fixed navbar
+                const offsetTop = targetSection.offsetTop - 80;
                 
                 window.scrollTo({
                     top: offsetTop,
@@ -88,40 +87,39 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Contact Form Handling
+    // contact form submission logic
     const contactForm = document.querySelector('.contact-form');
     
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Get form data
+            // extracting form data
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
             
-            // Simple validation
+            // data validation
             if (!name || !email || !message) {
                 alert('Please fill in all fields.');
                 return;
             }
             
-            // Email validation
+            // email validation
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
                 alert('Please enter a valid email address.');
                 return;
             }
             
-            // Simulate form submission (since there's no backend)
+            // form submitted
             alert(`Thank you, ${name}! Your message has been received. I'll get back to you soon!`);
             
-            // Reset form
             contactForm.reset();
         });
     }
     
-    // Greeting Message by Time of Day
+    // extra small thing (this part will greet the user based on the time of day)
     function displayGreeting() {
         const heroTitle = document.querySelector('.hero-title');
         if (!heroTitle) return;
@@ -141,17 +139,13 @@ document.addEventListener('DOMContentLoaded', function() {
         heroTitle.innerHTML = `${greeting} <span class="highlight">Almaan Khan</span>`;
     }
     
-    // Apply greeting on page load
     displayGreeting();
     
-    // Navbar Background Change on Scroll
     const navbar = document.querySelector('.navbar');
     
     if (navbar) {
         window.addEventListener('scroll', function() {
             updateNavbarTheme();
-            
-            // Update shadow based on scroll
             if (window.scrollY > 50) {
                 navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
             } else {
@@ -160,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Add fade-in animation to sections when they come into view
+    // fade-in animation to sections when they come into view
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -174,8 +168,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }, observerOptions);
-    
-    // Observe sections for fade-in effect
+
     document.querySelectorAll('section').forEach(section => {
         section.style.opacity = '0';
         section.style.transform = 'translateY(20px)';
@@ -183,14 +176,14 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(section);
     });
     
-    // Hero section should be visible immediately
+    // hero section should be visible immediately
     const heroSection = document.querySelector('.hero');
     if (heroSection) {
         heroSection.style.opacity = '1';
         heroSection.style.transform = 'translateY(0)';
     }
     
-    // Add typing effect to hero subtitle (optional enhancement)
+    // typing effect for hero subtitle 
     function typeWriter(element, text, speed = 100) {
         if (!element) return;
         
@@ -205,36 +198,23 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         
-        // Start typing after a short delay
+        // typing using a short delay to replicate real human typing
         setTimeout(type, 1000);
     }
     
-    // Apply typing effect to subtitle
     const heroSubtitle = document.querySelector('.hero-subtitle');
     if (heroSubtitle) {
         const originalText = heroSubtitle.textContent;
         typeWriter(heroSubtitle, originalText, 80);
     }
-    
-    // Console message for developers
-    console.log('🚀 Welcome to Almaan Khan\'s Portfolio!');
-    console.log('💻 Built with HTML, CSS, and JavaScript');
-    console.log('🎯 Assignment 1 - SWE 363');
 });
 
-// Additional utility functions
+// func just to get the current time in string format
 function getCurrentTime() {
     return new Date().toLocaleTimeString();
 }
 
+// same thing but for date
 function getCurrentDate() {
     return new Date().toLocaleDateString();
-}
-
-// Export functions for potential testing (if using modules in the future)
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {
-        getCurrentTime,
-        getCurrentDate
-    };
 }
